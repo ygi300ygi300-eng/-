@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7f8" />
+  <title>모아 디자인 시스템 스튜디오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="모아 스튜디오 홈"><span class="brand-mark">M</span><span>moa<span class="brand-light"> studio</span></span></a>
+    <div class="top-divider"></div>
+    <div class="project-name">당근마켓 <span class="project-tag">디자인 시스템</span></div>
+    <div class="top-spacer"></div>
+    <div class="saved-status"><span class="saved-dot"></span> 모든 변경사항 저장됨</div>
+    <button class="export-button" id="export-button"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5v8m0 0L5.8 7.3M9 10.5l3.2-3.2M3.5 11.3v3.2h11v-3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Figma로 내보내기</button>
+    <button class="avatar" aria-label="프로필">K</button>
+  </header>
+
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="sidebar-heading">WORKSPACE <button class="plus-button" aria-label="워크스페이스 추가">+</button></div>
+      <button class="workspace-selector"><span class="selector-icon">ㄷ</span><span class="selector-copy"><strong>당근마켓</strong><small>개인 워크스페이스</small></span><span class="chevron">⌄</span></button>
+      <div class="nav-section">
+        <div class="sidebar-heading">DESIGN SYSTEM</div>
+        <a class="nav-item" href="#preview"><span class="nav-icon">▧</span> 대시보드 <span class="nav-arrow">↗</span></a>
+        <a class="nav-item active" href="#tokens"><span class="nav-icon">◈</span> 디자인 토큰 <span class="nav-count">12</span></a>
+        <a class="nav-item" href="#components"><span class="nav-icon">⊞</span> 컴포넌트</a>
+      </div>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-bottom"><div class="sidebar-heading">RECENT CHANGES</div><div class="recent-row"><span class="recent-avatar">K</span><span><strong>김강인</strong><small>Brand / Primary 수정</small></span><time>방금</time></div><div class="recent-row"><span class="recent-avatar pale">K</span><span><strong>김강인</strong><small>Radius / Large 수정</small></span><time>3분 전</time></div></div>
+      <button class="user-profile"><span class="profile-avatar">K</span><span><strong>김강인</strong><small>Free 플랜</small></span><span class="chevron">···</span></button>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-heading"><div><div class="breadcrumb">당근마켓 <span>/</span> 디자인 토큰</div><h1>디자인 토큰</h1><p>토큰을 조정하고, 실제 화면에서 바로 확인해 보세요.</p></div><button class="share-button"><span>↗</span> 공유</button></div>
+      <div class="main-grid">
+        <section class="token-panel" id="tokens">
+          <div class="panel-header"><div class="tabs"><button class="tab active" data-tab="all">전체 <span>12</span></button><button class="tab" data-tab="color">컬러 <span>6</span></button><button class="tab" data-tab="radius">반경 <span>3</span></button><button class="tab" data-tab="spacing">간격 <span>3</span></button></div><button class="icon-button" id="reset-button" title="기본값으로 되돌리기" aria-label="기본값으로 되돌리기">↺</button></div>
+          <div class="token-list">
+            <section class="token-group" data-category="color"><div class="group-heading"><span class="group-swatch color-swatch">◉</span><div><h2>Brand</h2><p>브랜드를 대표하는 기본 컬러</p></div><span class="token-count">3 TOKENS</span></div>
+              <div class="token-row" data-token="brandPrimary"><div class="token-info"><strong>Primary</strong><code>color.brand.primary</code></div><label class="color-input-wrap"><input type="color" data-key="brandPrimary" aria-label="Brand Primary 컬러"/><input class="hex-value" data-hex="brandPrimary" value="#FF6F0F" aria-label="Brand Primary HEX" spellcheck="false"/></label></div>
+              <div class="token-row" data-token="brandSecondary"><div class="token-info"><strong>Secondary</strong><code>color.brand.secondary</code></div><label class="color-input-wrap"><input type="color" data-key="brandSecondary" aria-label="Brand Secondary 컬러"/><input class="hex-value" data-hex="brandSecondary" value="#FF8A3D" aria-label="Brand Secondary HEX" spellcheck="false"/></label></div>
+              <div class="token-row" data-token="brandSurface"><div class="token-info"><strong>Surface</strong><code>color.brand.surface</code></div><label class="color-input-wrap"><input type="color" data-key="brandSurface" aria-label="Brand Surface 컬러"/><input class="hex-value" data-hex="brandSurface" value="#FFF3EB" aria-label="Brand Surface HEX" spellcheck="false"/></label></div>
+            </section>
+            <section class="token-group" data-category="color"><div class="group-heading"><span class="group-swatch text-swatch">Aa</span><div><h2>Text</h2><p>텍스트 계층별 컬러</p></div><span class="token-count">3 TOKENS</span></div>
+              <div class="token-row" data-token="textPrimary"><div class="token-info"><strong>Primary</strong><code>color.text.primary</code></div><label class="color-input-wrap"><input type="color" data-key="textPrimary" aria-label="Text Primary 컬러"/><input class="hex-value" data-hex="textPrimary" value="#252525" aria-label="Text Primary HEX" spellcheck="false"/></label></div>
+              <div class="token-row" data-token="textSecondary"><div class="token-info"><strong>Secondary</strong><code>color.text.secondary</code></div><label class="color-input-wrap"><input type="color" data-key="textSecondary" aria-label="Text Secondary 컬러"/><input class="hex-value" data-hex="textSecondary" value="#777777" aria-label="Text Secondary HEX" spellcheck="false"/></label></div>
+              <div class="token-row" data-token="textTertiary"><div class="token-info"><strong>Tertiary</strong><code>color.text.tertiary</code></div><label class="color-input-wrap"><input type="color" data-key="textTertiary" aria-label="Text Tertiary 컬러"/><input class="hex-value" data-hex="textTertiary" value="#A3A3A3" aria-label="Text Tertiary HEX" spellcheck="false"/></label></div>
+            </section>
+            <section class="token-group" data-category="radius"><div class="group-heading"><span class="group-swatch radius-swatch">◱</span><div><h2>Radius</h2><p>모서리의 둥글기</p></div><span class="token-count">3 TOKENS</span></div>
+              <div class="token-row" data-token="radiusSmall"><div class="token-info"><strong>Small</strong><code>radius.sm</code></div><label class="unit-input-wrap"><input type="number" data-key="radiusSmall" min="0" max="32" value="8" aria-label="Radius Small"/><span>px</span></label></div>
+              <div class="token-row" data-token="radiusMedium"><div class="token-info"><strong>Medium</strong><code>radius.md</code></div><label class="unit-input-wrap"><input type="number" data-key="radiusMedium" min="0" max="32" value="12" aria-label="Radius Medium"/><span>px</span></label></div>
+              <div class="token-row" data-token="radiusLarge"><div class="token-info"><strong>Large</strong><code>radius.lg</code></div><label class="unit-input-wrap"><input type="number" data-key="radiusLarge" min="0" max="32" value="16" aria-label="Radius Large"/><span>px</span></label></div>
+            </section>
+            <section class="token-group" data-category="spacing"><div class="group-heading"><span class="group-swatch spacing-swatch">⠿</span><div><h2>Spacing</h2><p>요소 사이의 여백</p></div><span class="token-count">3 TOKENS</span></div>
+              <div class="token-row" data-token="spacingSmall"><div class="token-info"><strong>Small</strong><code>spacing.sm</code></div><label class="unit-input-wrap"><input type="number" data-key="spacingSmall" min="0" max="64" value="8" aria-label="Spacing Small"/><span>px</span></label></div>
+              <div class="token-row" data-token="spacingMedium"><div class="token-info"><strong>Medium</strong><code>spacing.md</code></div><label class="unit-input-wrap"><input type="number" data-key="spacingMedium" min="0" max="64" value="16" aria-label="Spacing Medium"/><span>px</span></label></div>
+              <div class="token-row" data-token="spacingLarge"><div class="token-info"><strong>Large</strong><code>spacing.lg</code></div><label class="unit-input-wrap"><input type="number" data-key="spacingLarge" min="0" max="64" value="24" aria-label="Spacing Large"/><span>px</span></label></div>
+            </section>
+          </div>
+          <div class="token-footer"><span><span class="live-dot"></span> 편집 내용이 미리보기에 실시간 반영됩니다</span><button id="copy-css">CSS 변수 복사 ↗</button></div>
+        </section>
+
+        <section class="preview-panel" id="preview"><div class="preview-header"><div><div class="preview-label"><span class="live-dot"></span> LIVE PREVIEW</div><h2>대시보드 미리보기</h2></div><button class="device-button">▣ <span>데스크톱</span>⌄</button></div>
+          <div class="preview-canvas"><div class="dash-window"><div class="dash-topbar"><span class="dash-logo"><span>ㄷ</span> 당근</span><div class="dash-toplinks"><span>동네생활</span><span>중고거래</span><span>이벤트</span></div><button class="dash-chat">채팅하기</button></div><div class="dash-body"><aside class="dash-sidebar"><div class="dash-greeting">김강인님,<br/><strong>반가워요!</strong></div><div class="dash-nav active"><span>⌂</span> 홈</div><div class="dash-nav"><span>▣</span> 내 동네</div><div class="dash-nav"><span>♡</span> 관심목록</div><div class="dash-nav"><span>▤</span> 내 판매내역</div><div class="dash-nav"><span>◷</span> 최근 본 상품</div><div class="dash-mini-card"><span>당근 매너온도</span><strong>36.5°</strong><span class="temperature"><i></i></span></div></aside><div class="dash-main"><div class="dash-hello"><div><span>MONDAY, JUNE 16</span><h3>오늘은 어떤 걸 찾으세요?</h3></div><span class="dash-weather">☀ &nbsp; 24°</span></div><label class="dash-search">⌕ <span>우리 동네에서 필요한 걸 검색해 보세요</span><kbd>⌘ K</kbd></label><div class="dash-section-title"><strong>오늘의 추천</strong><span>모두 보기&nbsp; →</span></div><div class="product-grid"><article class="product-card"><div class="product-photo camera-photo"><span class="photo-icon">◉</span><span class="heart">♡</span></div><strong>필름 카메라 팝니다</strong><small>정자동 · 2분 전</small><b>85,000원</b></article><article class="product-card"><div class="product-photo chair-photo"><span class="photo-icon">◈</span><span class="heart">♡</span></div><strong>원목 의자 2개 세트</strong><small>수내동 · 15분 전</small><b>30,000원</b></article><article class="product-card"><div class="product-photo plant-photo"><span class="photo-icon">❋</span><span class="heart">♡</span></div><strong>몬스테라 화분 나눔</strong><small>서현동 · 1시간 전</small><b>나눔</b></article></div><div class="dash-banner"><div><span>당근이 추천하는 동네 소식</span><strong>이번 주말, 동네 마켓에 놀러오세요!</strong></div><span class="banner-emoji">🥕</span></div></div></div></div></div>
+          <div class="preview-foot"><span>미리보기는 현재 토큰을 사용합니다</span><button id="toggle-preview"><span class="toggle-switch"><i></i></span> 토큰 강조 표시</button></div>
+        </section>
+      </div>
+      <footer class="page-footer"><span>모아 스튜디오 <span class="footer-dot">·</span> 당근 디자인 시스템</span><span>도움이 필요하신가요? <a href="mailto:hello@example.com">문의하기 ↗</a></span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
