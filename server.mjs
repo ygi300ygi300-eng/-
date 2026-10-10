@@ -1,17 +1,22 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
-import { extname, join } from 'node:path';
+import { extname, resolve, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = new URL('.', import.meta.url).pathname;
+const root = resolve(fileURLToPath(new URL('.', import.meta.url)));
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8' };
-createServer(async (req, res) => {
+const server = createServer(async (req, res) => {
   try {
-    const path = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-    const file = path === '/' ? 'index.html' : path.slice(1);
-    const body = await readFile(join(root, file));
-    res.writeHead(200, { 'Content-Type': types[extname(file)] || 'application/octet-stream' });
+    const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    const relative = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
+    const file = resolve(root, relative);
+    if (file !== root && !file.startsWith(root + sep)) throw new Error('Invalid path');
+    const body = await readFile(file);
+    res.writeHead(200, { 'Content-Type': types[extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
     res.end(body);
   } catch {
-    res.writeHead(404); res.end('Not found');
+    res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('Not found');
   }
-}).listen(8000, '127.0.0.1', () => console.log('Design System Studio: http://127.0.0.1:8000'));
+});
+server.listen(Number(process.env.PORT) || 8002, '127.0.0.1', () => console.log(`READLOG: http://127.0.0.1:${server.address().port}`));
